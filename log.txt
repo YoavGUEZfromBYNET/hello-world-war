@@ -1,0 +1,319 @@
+Started by user Yoav GUEZ
+Running in Durability level: MAX_SURVIVABILITY
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on docker-vm in /home/jenkins/workspace/Module3-DockerBuildMaven
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Build - checkout code - Clone)
+[Pipeline] checkout
+The recommended git tool is: NONE
+using credential GitHub
+Cloning the remote Git repository
+Cloning repository https://github.com/YoavGUEZfromBYNET/hello-world-war.git
+ > git init /home/jenkins/workspace/Module3-DockerBuildMaven # timeout=10
+Fetching upstream changes from https://github.com/YoavGUEZfromBYNET/hello-world-war.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.25.1'
+using GIT_ASKPASS to set credentials Connecxion GitHub
+ > git fetch --tags --force --progress -- https://github.com/YoavGUEZfromBYNET/hello-world-war.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+Checking out Revision 4b6d2ac2c3b0a61e3ff8a86bf8b7c8519af51533 (origin/master)
+Commit message: "Add script YG test local - run detach docker OK"
+First time build. Skipping changelog.
+[Pipeline] sleep
+Sleeping for 2 sec
+ > git config remote.origin.url https://github.com/YoavGUEZfromBYNET/hello-world-war.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse origin/master^{commit} # timeout=10
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 4b6d2ac2c3b0a61e3ff8a86bf8b7c8519af51533 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build - by MAVEN: Compile WAR)
+[Pipeline] sh
++ pwd
+/home/jenkins/workspace/Module3-DockerBuildMaven
++ mvn clean package
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.google.inject.internal.cglib.core.$ReflectUtils$1 (file:/usr/share/maven/lib/guice.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of com.google.inject.internal.cglib.core.$ReflectUtils$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--------------------< [0;36mcom.efsavage:hello-world-war[0;1m >--------------------[m
+[[1;34mINFO[m] [1mBuilding Hello World Web Application Repository 1.0.0[m
+[[1;34mINFO[m] [1m--------------------------------[ war ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:2.5:clean[m [1m(default-clean)[m @ [36mhello-world-war[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mhello-world-war[0;1m ---[m
+[[1;33mWARNING[m] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[[1;34mINFO[m] skip non existing resourceDirectory /home/jenkins/workspace/Module3-DockerBuildMaven/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:compile[m [1m(default-compile)[m @ [36mhello-world-war[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mhello-world-war[0;1m ---[m
+[[1;33mWARNING[m] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[[1;34mINFO[m] skip non existing resourceDirectory /home/jenkins/workspace/Module3-DockerBuildMaven/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:testCompile[m [1m(default-testCompile)[m @ [36mhello-world-war[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.12.4:test[m [1m(default-test)[m @ [36mhello-world-war[0;1m ---[m
+[[1;34mINFO[m] No tests to run.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-war-plugin:2.1.1:war[m [1m(default-war)[m @ [36mhello-world-war[0;1m ---[m
+[[1;34mINFO[m] Packaging webapp
+[[1;34mINFO[m] Assembling webapp [hello-world-war] in [/home/jenkins/workspace/Module3-DockerBuildMaven/target/hello-world-war-1.0.0]
+[[1;34mINFO[m] Processing war project
+[[1;34mINFO[m] Copying webapp resources [/home/jenkins/workspace/Module3-DockerBuildMaven/src/main/webapp]
+[[1;34mINFO[m] Webapp assembled in [46 msecs]
+[[1;34mINFO[m] Building war: /home/jenkins/workspace/Module3-DockerBuildMaven/target/hello-world-war-1.0.0.war
+[[1;34mINFO[m] WEB-INF/web.xml already added, skipping
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  2.489 s
+[[1;34mINFO[m] Finished at: 2021-11-04T14:40:17Z
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[Pipeline] sleep
+Sleeping for 5 sec
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build - Docker Image creation)
+[Pipeline] echo
+Building Container..
+[Pipeline] script
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] sh
++ docker build -t 104194/module3-war-deploy:version-5 .
+Sending build context to Docker daemon  166.9kB
+
+Step 1/4 : FROM tomcat
+ ---> b0e0b0a92cf9
+Step 2/4 : COPY target/hello-world-war-1.0.0.war /usr/local/tomcat/webapps/ROOT.war
+ ---> 025a1cfdf875
+Step 3/4 : COPY target/hello-world-war-1.0.0/ /usr/local/tomcat/webapps/ROOT
+ ---> c979d6811b94
+Step 4/4 : EXPOSE 8080
+ ---> Running in b26b89d392f7
+Removing intermediate container b26b89d392f7
+ ---> f19c7f498be0
+Successfully built f19c7f498be0
+Successfully tagged 104194/module3-war-deploy:version-5
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build - Test contenaire based on last Image)
+[Pipeline] echo
+Testing Container..
+[Pipeline] script
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] sh
++ docker run -d --name run-5 -p 8081:8080 104194/module3-war-deploy:version-5
+[Pipeline] sh
++ docker ps
+CONTAINER ID   IMAGE                                 COMMAND             CREATED        STATUS                  PORTS                                       NAMES
+75a99d321518   104194/module3-war-deploy:version-5   "catalina.sh run"   1 second ago   Up Less than a second   0.0.0.0:8081->8080/tcp, :::8081->8080/tcp   run-5
+[Pipeline] sh
++ netstat -ntaup
+(Not all processes could be identified, non-owned process info
+ will not be shown, you would have to be root to see it all.)
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -                   
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -                   
+tcp        0      0 0.0.0.0:8081            0.0.0.0:*               LISTEN      -                   
+tcp        0      0 10.10.10.70:22          10.10.10.2:54756        ESTABLISHED -                   
+tcp        0      0 10.0.2.15:22            10.0.2.2:58252          ESTABLISHED -                   
+tcp        0      0 10.0.2.15:32804         140.82.121.4:443        TIME_WAIT   -                   
+tcp6       0      0 :::4243                 :::*                    LISTEN      -                   
+tcp6       0      0 :::22                   :::*                    LISTEN      -                   
+tcp6       0      0 :::8081                 :::*                    LISTEN      -                   
+tcp6      25      0 10.0.2.15:58072         3.68.175.98:443         CLOSE_WAIT  2453/java           
+udp        0      0 127.0.0.53:53           0.0.0.0:*                           -                   
+udp        0      0 10.0.2.15:68            0.0.0.0:*                           -                   
+[Pipeline] sh
++ sleep 5s
+[Pipeline] sh
++ curl 127.0.0.1:8081
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+100   249  100   249    0     0    133      0  0:00:01  0:00:01 --:--:--   133
+<html>
+<head>
+<title>Hello World!</title>
+</head>
+<body>
+	<h1>Hello and Welcome to YOAV's World!</h1>
+	<h2>BYNET PS - DEVOPS COURSE 2020</h2>
+	<p>
+		It is now  
+		Thu Nov 04 14:40:34 UTC 2021</p>
+	<p>
+		You are coming from 
+		172.17.0.1</p>
+</body>
+[Pipeline] sh
++ docker ps
+CONTAINER ID   IMAGE                                 COMMAND             CREATED          STATUS         PORTS                                       NAMES
+75a99d321518   104194/module3-war-deploy:version-5   "catalina.sh run"   10 seconds ago   Up 8 seconds   0.0.0.0:8081->8080/tcp, :::8081->8080/tcp   run-5
+[Pipeline] isUnix
+[Pipeline] sh
++ docker stop 75a99d32151857e8fffddc2b7291853de464b293c62bb50187cb3e4ce3570336
+75a99d32151857e8fffddc2b7291853de464b293c62bb50187cb3e4ce3570336
++ docker rm -f 75a99d32151857e8fffddc2b7291853de464b293c62bb50187cb3e4ce3570336
+75a99d32151857e8fffddc2b7291853de464b293c62bb50187cb3e4ce3570336
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build - Push last image Tested)
+[Pipeline] echo
+Pushing last tested Image to docker YG HUB..
+[Pipeline] script
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withDockerRegistry
+Using the existing docker config file.Removing blacklisted property: auths$ docker login -u 104194 -p ******** https://index.docker.io/v1/
+WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+WARNING! Your password will be stored unencrypted in /home/jenkins/workspace/Module3-DockerBuildMaven@tmp/3a4e0d1b-f8d2-4d33-a59b-602199429883/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] sh
++ docker tag 104194/module3-war-deploy:version-5 104194/module3-war-deploy:latest
+[Pipeline] isUnix
+[Pipeline] sh
++ docker push 104194/module3-war-deploy:latest
+The push refers to repository [docker.io/104194/module3-war-deploy]
+a0b3bf436c50: Preparing
+7b1475bfd350: Preparing
+450346f29d28: Preparing
+5122793ce9cb: Preparing
+cb80689c9aef: Preparing
+78700b6b35d0: Preparing
+62a5b8741e83: Preparing
+36e0782f1159: Preparing
+ba6e5ff31f23: Preparing
+9f9f651e9303: Preparing
+0b3c02b5d746: Preparing
+62a747bf1719: Preparing
+62a5b8741e83: Waiting
+36e0782f1159: Waiting
+ba6e5ff31f23: Waiting
+9f9f651e9303: Waiting
+0b3c02b5d746: Waiting
+62a747bf1719: Waiting
+78700b6b35d0: Waiting
+cb80689c9aef: Layer already exists
+5122793ce9cb: Layer already exists
+450346f29d28: Layer already exists
+62a5b8741e83: Layer already exists
+78700b6b35d0: Layer already exists
+36e0782f1159: Layer already exists
+9f9f651e9303: Layer already exists
+ba6e5ff31f23: Layer already exists
+0b3c02b5d746: Layer already exists
+62a747bf1719: Layer already exists
+7b1475bfd350: Pushed
+a0b3bf436c50: Pushed
+latest: digest: sha256:ef0e9fef5477753e727ad1c5df14a5dbf56716722180eb6ad6e1513119917256 size: 2837
+[Pipeline] isUnix
+[Pipeline] sh
++ docker tag 104194/module3-war-deploy:version-5 104194/module3-war-deploy:version-5
+[Pipeline] isUnix
+[Pipeline] sh
++ docker push 104194/module3-war-deploy:version-5
+The push refers to repository [docker.io/104194/module3-war-deploy]
+a0b3bf436c50: Preparing
+7b1475bfd350: Preparing
+450346f29d28: Preparing
+5122793ce9cb: Preparing
+cb80689c9aef: Preparing
+78700b6b35d0: Preparing
+62a5b8741e83: Preparing
+36e0782f1159: Preparing
+ba6e5ff31f23: Preparing
+9f9f651e9303: Preparing
+0b3c02b5d746: Preparing
+62a747bf1719: Preparing
+78700b6b35d0: Waiting
+62a5b8741e83: Waiting
+36e0782f1159: Waiting
+ba6e5ff31f23: Waiting
+9f9f651e9303: Waiting
+0b3c02b5d746: Waiting
+62a747bf1719: Waiting
+a0b3bf436c50: Layer already exists
+cb80689c9aef: Layer already exists
+5122793ce9cb: Layer already exists
+7b1475bfd350: Layer already exists
+450346f29d28: Layer already exists
+62a5b8741e83: Layer already exists
+ba6e5ff31f23: Layer already exists
+78700b6b35d0: Layer already exists
+36e0782f1159: Layer already exists
+9f9f651e9303: Layer already exists
+62a747bf1719: Layer already exists
+0b3c02b5d746: Layer already exists
+version-5: digest: sha256:ef0e9fef5477753e727ad1c5df14a5dbf56716722180eb6ad6e1513119917256 size: 2837
+[Pipeline] }
+[Pipeline] // withDockerRegistry
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Cleaning up - local image)
+[Pipeline] sh
++ docker rmi 104194/module3-war-deploy:version-5
+Untagged: 104194/module3-war-deploy:version-5
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Slack Send "repo details" )
+[Pipeline] sleep
+Sleeping for 1 sec
+[Pipeline] sh
++ awk -F: {print $3}
++ sed -e s/[][]//g -e s/"//g -e s/ //g
++ wget -q https://registry.hub.docker.com/v1/repositories/104194/module3-war-deploy/tags -O -
++ tr } 
+
++ pwd
+/home/jenkins/workspace/Module3-DockerBuildMaven
+[Pipeline] slackSend
+Slack Send Pipeline step running, values are - baseUrl: <empty>, teamDomain: intcollege-workspace, channel: yg-channel-private, color: #3EA652, botUser: true, tokenCredentialId: YGslack_SendFile, notifyCommitters: false, iconEmoji: <empty>, username: YG, timestamp: <empty>
+[Pipeline] slackUploadFile
+[Pipeline] slackUploadFile
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
