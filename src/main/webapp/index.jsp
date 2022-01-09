@@ -9,6 +9,9 @@
 		It is now  
 		<%= new java.util.Date() %></p>
 	<p>
-		You are coming from 
+		You are coming from (Remote address) 
 		<%= request.getRemoteAddr()  %></p>
+	<p>
+		Your node' IP  (Local address) is 
+		<%= request.getLocalAddr()  %></p>
 </body>
