@@ -11,4 +11,7 @@
 	<p>
 		You are coming from 
 		<%= request.getRemoteAddr()  %></p>
+	<p>
+		Your node' IP  (Local address) is 
+		<%= request.getLocalAddr()  %></p>
 </body>
